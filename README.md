@@ -2,7 +2,7 @@
 ![A picture of the wave1 Sum-of-Sines Ocean Simulation in action!](wave1/demo.png "A picture of the wave1 Sum-of-Sines Ocean Simulation in action!")
 
 ## Overview
-wave1 is the final project in my journey of learning OpenGL, before I felt comfortable enough with graphics programming to move onto a modern API. Therefore, performance, code maintainability and readability were not my primary focus, as I instead sought a visually appealing and convincing ocean simulation.
+*wave1* is the final project in my journey of learning OpenGL, before I felt comfortable enough with graphics programming to move onto a modern API. Therefore, performance, code maintainability and readability were not my primary focus, as I instead sought a visually appealing and convincing ocean simulation.
 
 While sum-of-sines isn't a accurate model of ocean movement, I still tried to make the simulation as realistic as possible. For example, some of the design choices I implemented to improve realism were:
 - calculating exact vertex normals by deriving the partial derivative of the wave with respect to x and z, instead of using an approximation like central difference,
@@ -20,7 +20,7 @@ The code within the `wave1/camera.hpp` file is used to create the fly camera, wh
 The code within the `wave1/wave.vert` and `wave/wave.frag` files are the vertex and fragment shader for the wave mesh, respectively.
 
 ## Sources
-I used Chapter 1 of Nvidia's [GPU Gems](https://developer.nvidia.com/gpugems/gpugems/part-i-natural-effects/chapter-1-effective-water-simulation-physical-models) and Acerola's [How Games Fake Water](https://www.youtube.com/watch?v=PH9q0HNBjT4&t=1168s&pp=ygUNd2F2ZXMgYWNlcm9sYQ%3D%3D) as my main sources of inspiration and aid throughout the project.
+I used Chapter 1 of Nvidia's [GPU Gems](https://developer.nvidia.com/gpugems/gpugems/part-i-natural-effects/chapter-1-effective-water-simulation-physical-models) and Acerola's [How Games Fake Water](https://www.youtube.com/watch?v=PH9q0HNBjT4) as my main sources of inspiration and aid throughout the project.
 
 Some code snippets are taken from [Learn OpenGL](https://learnopengl.com/). 
 
