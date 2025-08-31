@@ -13,13 +13,13 @@
 #include "shader.hpp"
 #include "wave.hpp"
 #include "camera.hpp"
+#include "skybox.hpp"
 
 
 #define rgb(r, g, b) (glm::vec3((r) / 255.0f, (g) / 255.0f, (b) / 255.0f))
 
 static void framebuffer_size_callback(GLFWwindow*, int, int);
 static void mouse_callback(GLFWwindow*, double, double);
-static void scroll_callback(GLFWwindow*, double, double);
 static void mouse_button_callback(GLFWwindow*, int, int, int);
 static void processInput(GLFWwindow*);
 static void renderImGui();
@@ -81,7 +81,6 @@ int main() {
 
 	glfwMakeContextCurrent(window);
 	glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);	
-	glfwSetScrollCallback(window, scroll_callback);
 	glfwSetMouseButtonCallback(window, mouse_button_callback);
 
 	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
@@ -98,51 +97,6 @@ int main() {
 
 	glEnable(GL_DEPTH_TEST);
 	glClearColor(210 / 255.0f, 180 / 255.0f, 140 / 255.0f, 1.0f);
-	// glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-
-	GLfloat skyboxVertices[] = {
-		-1.0f,  1.0f, -1.0f,
-		-1.0f, -1.0f, -1.0f,
-		 1.0f, -1.0f, -1.0f,
-		 1.0f, -1.0f, -1.0f,
-		 1.0f,  1.0f, -1.0f,
-		-1.0f,  1.0f, -1.0f,
-
-		-1.0f, -1.0f,  1.0f,
-		-1.0f, -1.0f, -1.0f,
-		-1.0f,  1.0f, -1.0f,
-		-1.0f,  1.0f, -1.0f,
-		-1.0f,  1.0f,  1.0f,
-		-1.0f, -1.0f,  1.0f,
-
-		 1.0f, -1.0f, -1.0f,
-		 1.0f, -1.0f,  1.0f,
-		 1.0f,  1.0f,  1.0f,
-		 1.0f,  1.0f,  1.0f,
-		 1.0f,  1.0f, -1.0f,
-		 1.0f, -1.0f, -1.0f,
-
-		-1.0f, -1.0f,  1.0f,
-		-1.0f,  1.0f,  1.0f,
-		 1.0f,  1.0f,  1.0f,
-		 1.0f,  1.0f,  1.0f,
-		 1.0f, -1.0f,  1.0f,
-		-1.0f, -1.0f,  1.0f,
-
-		-1.0f,  1.0f, -1.0f,
-		 1.0f,  1.0f, -1.0f,
-		 1.0f,  1.0f,  1.0f,
-		 1.0f,  1.0f,  1.0f,
-		-1.0f,  1.0f,  1.0f,
-		-1.0f,  1.0f, -1.0f,
-
-		-1.0f, -1.0f, -1.0f,
-		-1.0f, -1.0f,  1.0f,
-		 1.0f, -1.0f, -1.0f,
-		 1.0f, -1.0f, -1.0f,
-		-1.0f, -1.0f,  1.0f,
-		 1.0f, -1.0f,  1.0f
-	};
 
 	GLuint vao, vbo;
 	glGenVertexArrays(1, &vao);
@@ -187,7 +141,7 @@ int main() {
 
 	Shader skybox_shader("skybox.vert", "skybox.frag");
 
-	Wave wave(2000.0, 6000);
+	Wave wave(1000.0, 5000);
 	Shader shader("wave.vert", "wave.frag");
 	shader.use();
 	shader.set("Ia", glm::vec3(0.2f, 0.2f, 0.2f));
@@ -397,8 +351,4 @@ static void mouse_button_callback(GLFWwindow* window, int button, int action, in
 		glfwSetCursorPosCallback(window, previous);
 		glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
 	}
-}
-
-static void scroll_callback(GLFWwindow* window, double xoffset, double yoffset) {
-	// camera.ProcessMouseScroll(static_cast<float>(yoffset));
 }

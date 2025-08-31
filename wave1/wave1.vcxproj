@@ -71,8 +71,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <LibraryPath>C:\Users\arasc\Documents\OpenGL\deps\lib;$(LibraryPath)</LibraryPath>
-    <IncludePath>C:\Users\arasc\Documents\OpenGL\deps\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\arasc\Documents\Graphics\OpenGL\deps\Libs;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\arasc\Documents\Graphics\OpenGL\deps\Include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -133,7 +133,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\Documents\OpenGL\glad\src\glad.c" />
+    <ClCompile Include="glad.c" />
     <ClCompile Include="imgui\imgui.cpp" />
     <ClCompile Include="imgui\imgui_demo.cpp" />
     <ClCompile Include="imgui\imgui_draw.cpp" />
